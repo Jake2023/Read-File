@@ -29,16 +29,17 @@ exit(EXIT_FAILURE);
 }
 
 int Max = 0;
-inFile >> Max; // get first number
-patrons * Society = new patrons[Max];
 
-for(int i = 0; i < Max; i++)
-	{
-	     inFile.get();
-        getline(inFile,Society[i].name);
-        inFile >> Society[i].money;   
-        
-	}
+while (inFile.good()) // if input good and not at EOF
+{	
+	  inFile >> ch; // get next char 
+	  if (isdigit(ch))
+	  {
+	    Max = atoi(&ch);
+	    break;
+	  }
+}
+cout << Max;
 
 if (inFile.eof())
 cout << "End of file reached.\n";
