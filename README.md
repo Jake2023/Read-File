@@ -1,5 +1,4 @@
 # Read-File
-Still in trouble
 
 #include <iostream>
 #include <fstream> // file I/O support
@@ -28,18 +27,59 @@ cout << "Program terminating.\n";
 exit(EXIT_FAILURE);
 }
 
-int Max = 0;
+string  s;
 
-while (inFile.good()) // if input good and not at EOF
-{	
-	  inFile >> ch; // get next char 
-	  if (isdigit(ch))
-	  {
-	    Max = atoi(&ch);
-	    break;
-	  }
+int patronss = 0;
+int grandPatrons = 0;
+
+while(inFile.good())
+{
+ inFile>>s;
+ break;
+} 
+int Max =stoi(s) ; /*Enter name of data file: Donate.txt
+terminating with uncaught exception of type std::invalid_argument: stoi: no conversion
+/buildbot/src/android/ndk-release-r22/toolchain/llvm-project/libcxx/../../../toolchain/llvm-project/libcxxabi/src/abort_message.cpp:72: abort_message: assertion "terminating with uncaught exception of type std::invalid_argument: stoi: no conversion" failed
+Aborted*/
+
+patrons * Society = new patrons[Max];
+
+for (int i = 0; i < Max; i++)
+{
+getline(inFile, Society[i].name); // getline to grab name
+cout << Society[i].name;
+(inFile >> Society[i].money).get();
+/*inFile >> society[i].money;*/
+cout << Society[i].money;
 }
-cout << Max;
+cout << "Grand Patrons: \n";
+for(int x = 0; x < Max; x++)
+{
+if(Society[x].money >= 10000)
+{
+cout << Society[x].name << " Donated: "
+<< "$ " << Society[x].money << "\n";
+grandPatrons = 1;
+}
+}
+if(grandPatrons == 0)
+cout << "none\n";
+
+ 
+cout << "Patrons list: \n";
+for(int y = 0; y < Max; y++)
+{
+if(Society[y].money < 10000)
+{
+cout << Society[y].name << " Donated: "
+<< "$ " << Society[y].money << "\n";
+patronss = 1;
+}
+}
+if(patronss == 0)
+cout << "none\n";
+
+delete [] Society;
 
 if (inFile.eof())
 cout << "End of file reached.\n";
