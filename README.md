@@ -28,19 +28,20 @@ exit(EXIT_FAILURE);
 }
 
 string  s;
-
+int Max;
+int num;
 int patronss = 0;
 int grandPatrons = 0;
 
 while(inFile.good())
 {
  inFile>>s;
- break;
+ 
+     if (isdigit(ch))
+      num = ch - '0';
+      
+        cout << num;
 } 
-int Max =stoi(s) ; /*Enter name of data file: Donate.txt
-terminating with uncaught exception of type std::invalid_argument: stoi: no conversion
-/buildbot/src/android/ndk-release-r22/toolchain/llvm-project/libcxx/../../../toolchain/llvm-project/libcxxabi/src/abort_message.cpp:72: abort_message: assertion "terminating with uncaught exception of type std::invalid_argument: stoi: no conversion" failed
-Aborted*/
 
 patrons * Society = new patrons[Max];
 
