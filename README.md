@@ -27,7 +27,7 @@ cout << "Program terminating.\n";
 exit(EXIT_FAILURE);
 }
 
-string  s;
+char ch;
 int Max;
 int num;
 int patronss = 0;
@@ -35,7 +35,7 @@ int grandPatrons = 0;
 
 while(inFile.good())
 {
- inFile>>s;
+ inFile>>ch;
  
      if (isdigit(ch))
       num = ch - '0';
